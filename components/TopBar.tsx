@@ -8,11 +8,11 @@ const TopBar = () => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.textStyle}>ChatBot</Text>
+        <Text style={styles.textStyle}>Chat Bot</Text>
       </View>
       <View>
         <TouchableOpacity onPress={() => {}}>
-          <FontAwesome5 name="history" size={30} color={themes.textColor} />
+          <FontAwesome5 name="history" size={30} color={themes.text} />
         </TouchableOpacity>
       </View>
     </View>
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
     width: width,
     paddingHorizontal: 20,
     height: height / 12,
-    backgroundColor: themes.borderColor,
+    backgroundColor: themes.background,
   },
   textStyle: {
     fontWeight: "bold",
     fontSize: 30,
-    color: themes.textColor,
+    color: themes.text,
   },
 });
 

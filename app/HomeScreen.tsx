@@ -3,6 +3,8 @@ import React from "react";
 import TopBar from "@/components/TopBar";
 import { themes } from "@/theme";
 import { height, width } from "@/utils/screen";
+import InputBox from "@/components/InputBox";
+import TextArea from "@/components/TextArea";
 
 const HomeScreen = () => {
   return (
@@ -10,7 +12,9 @@ const HomeScreen = () => {
       {/* topBar */}
       <TopBar />
       {/* Chat Text Area */}
+      <TextArea />
       {/* Input Box  */}
+      <InputBox />
     </View>
   );
 };
