@@ -3,15 +3,28 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import React from "react";
 import { height, width } from "@/utils/screen";
 import { themes } from "@/theme";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "react-native-screens/lib/typescript/native-stack/types";
 
 const TopBar = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+      >
+        <View>
+          <Text style={styles.textStyle}>Chat Bot</Text>
+        </View>
+      </TouchableOpacity>
       <View>
-        <Text style={styles.textStyle}>Chat Bot</Text>
-      </View>
-      <View>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("History");
+          }}
+        >
           <FontAwesome5 name="history" size={30} color={themes.text} />
         </TouchableOpacity>
       </View>

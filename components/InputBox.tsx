@@ -35,8 +35,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: width,
     paddingHorizontal: 10,
-    height: height / 12,
+    height: height / 10,
     position: "relative",
+    paddingVertical: 5,
   },
   textStyle: {
     fontWeight: "bold",
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     height: "80%",
-    borderWidth: 2,
+    borderWidth: 3,
     borderColor: themes.text,
     width: "100%",
     borderRadius: 40,
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     paddingRight: 60,
-    marginBottom: 10,
+    marginVertical: 10,
   },
   sendButton: {
     position: "absolute",

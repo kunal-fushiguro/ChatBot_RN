@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   insideBox: {
-    maxWidth: "60%",
+    maxWidth: "90%",
     height: "auto",
     textAlign: "right",
     borderColor: themes.text,
-    borderWidth: 1,
+    borderWidth: 3,
     borderRadius: 5,
     padding: 10,
     marginLeft: "auto",
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   text: {
     color: themes.text,
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 20,
     textAlign: "right",
   },
 });
