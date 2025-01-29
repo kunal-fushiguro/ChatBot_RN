@@ -1,11 +1,5 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
-import React from "react";
+import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import { height, width } from "@/utils/screen";
 import { themes } from "@/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -14,11 +8,15 @@ import { getPromptResponse } from "@/ai";
 
 const InputBox = () => {
   const { changeText, text, emptyText, setHistory, setAiResponse } = useStore();
+  const [disableBtn, setDisableBtn] = useState<boolean>(true);
   const onClickFn = async () => {
-    setHistory({ time: new Date(Date.now()), prompt: text });
-    const promptResponse = await getPromptResponse(text);
-    setAiResponse(promptResponse);
+    setDisableBtn(false);
+    const prompt = text;
     emptyText();
+    setHistory({ time: new Date(Date.now()), prompt: text });
+    const promptResponse = await getPromptResponse(prompt);
+    setAiResponse(promptResponse);
+    setDisableBtn(true);
   };
 
   return (
@@ -29,7 +27,11 @@ const InputBox = () => {
         value={text}
         onChangeText={(e) => changeText(e)}
       />
-      <TouchableOpacity style={styles.sendButton} onPress={onClickFn}>
+      <TouchableOpacity
+        style={styles.sendButton}
+        onPress={onClickFn}
+        disabled={!disableBtn}
+      >
         <Ionicons name="send" size={30} color="black" />
       </TouchableOpacity>
     </View>
