@@ -5,13 +5,21 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { height, width } from "@/utils/screen";
 import { themes } from "@/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useStore } from "@/store";
+import { getPromptResponse } from "@/ai";
 
 const InputBox = () => {
-  const [text, setText] = useState<string>(""); //temp
+  const { changeText, text, emptyText, setHistory, setAiResponse } = useStore();
+  const onClickFn = async () => {
+    setHistory({ time: new Date(Date.now()), prompt: text });
+    const promptResponse = await getPromptResponse(text);
+    setAiResponse(promptResponse);
+    emptyText();
+  };
 
   return (
     <View style={styles.container}>
@@ -19,9 +27,9 @@ const InputBox = () => {
         placeholder="Type here ........."
         style={styles.inputBox}
         value={text}
-        onChangeText={setText}
+        onChangeText={(e) => changeText(e)}
       />
-      <TouchableOpacity style={styles.sendButton}>
+      <TouchableOpacity style={styles.sendButton} onPress={onClickFn}>
         <Ionicons name="send" size={30} color="black" />
       </TouchableOpacity>
     </View>

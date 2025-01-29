@@ -2,17 +2,13 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { themes } from "@/theme";
 import { width } from "@/utils/screen";
+import { UserPromptProps } from "@/types";
 
-const UserPrompt = () => {
+const UserPrompt = ({ text }: UserPromptProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.insideBox}>
-        <Text style={styles.text}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia
-          neque quaerat doloremque, repellat illo ducimus architecto sed, dicta,
-          eaque sequi quam suscipit aperiam nesciunt provident incidunt nihil
-          distinctio unde fugit!
-        </Text>
+        <Text style={styles.text}>{text}</Text>
       </View>
     </View>
   );
